@@ -32,6 +32,7 @@ console.log(3 + 4); // Prints 7
 console.log(5 - 1); // Prints 4
 console.log(4 * 2); // Prints 8
 console.log(9 / 3); // Prints 3
+console.log (10 % 3); // Prints 1
 
 // 4 The 'Add' operator works on text too! This is called String Concatenation.
 console.log('hi' + 'ya'); // Prints 'hiya'

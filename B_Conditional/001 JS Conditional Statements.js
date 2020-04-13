@@ -145,4 +145,5 @@ switch (groceryItem) {
   default:
     console.log('Invalid item');
     break;
+}
 

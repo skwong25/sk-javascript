@@ -1,10 +1,10 @@
 /* 1 A Variable is a container for a Value 
 Variables label and store data in memory - storing info such as username, account no. etc
-// You can only do 3 things: Create a variable,  store/update info and reference/'get' info
+// You can only do 3 things: Create a variable, store/update info and reference/'get' info
 
 2 A Variable is Born VAR - used in pre-ES6 versions of JS.
 The keyword 'var' declares a new variable 'myName', using standard convention 'camel casing'
-The variable 'myName' is 'initialised' with the value of 'Arya. 
+The variable 'myName' is 'initialised' with the value of 'Arya. */
 
 var myName = 'Arya';
 console.log(myName);

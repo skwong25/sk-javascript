@@ -23,7 +23,7 @@ if (noOfGuests) {
 if (guests === 4) { 
   instaStatus = 'It\'s Monday night dindins';
 } else if (guests < 4) { 
-  instaStatus = 'Craig is running late.'
+  instaStatus = 'Craig is running late.';
 } else {
   instaStatus = 'Might make a sandwich';
 }
