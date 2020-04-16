@@ -43,7 +43,6 @@ function checkTen (array, value) {
 checkTen (nestedArray, 10)
 // output: Index position of 10 is [2][1] 
 
-
 /* EXAMPLE of unsuccessful code to check whether coordinates are present in a 2D array: 
 if (arr.indexOf([x, y]) == -1) {
     arr.push([x, y]);
@@ -115,11 +114,6 @@ console.log (testArray) // Output: [ 7, 6, 5, 4 ]
 console.log(testArray.slice(0,3)) // Returns removed elements [ 7, 6, 5 ]
 console.log (testArray) // Output: [ 7, 6, 5, 4 ] because array is not mutated  
 
-//TASKS
-// read through 2 x articles
-// do codecademy exercise
-// above challenge? merge 2 x 2d arrays? 
-// write own exercise re. splitting up to use all methods 
 
 
 
