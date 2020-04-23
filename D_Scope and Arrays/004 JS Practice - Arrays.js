@@ -15,7 +15,8 @@ console.log (evenNumbers);
 
 // The below code uses methods to access properties via dot notation
 console.log(array.length) // prints 4
-console.log (array.indexOf(1)) // prints 0
+console.log (array.indexOf(1)) // prints 0  
+console.log (array.includes(2) // prints true
 
 // The below code redefines values to elements via index 
 const oddToEven = (arr) => {arr[1] = 1; arr[3] = 3;} // or: function oddToEven () {} 
@@ -77,46 +78,59 @@ if (!isItemInArray(arr, [x, y])) {
 
 // ARRAY METHODS
 
-// Loop over an Array (.forEach)
+// Loop over an Array (.forEach) - NM
 testArray = [1,2,3,4]
 testArray.forEach(function(item){
     item += 1; 
     console.log(item); 
 })
 console.log(testArray) // output: [1,2,3,4]
-// .forEach does not mutate the array (NM)
 
-// Remove from End of Array (.pop())
-console.log(testArray.pop()) // returns removed element
+// Remove from End of Array (.pop()) - M
+console.log(testArray.pop()) // returns removed element [4] meaning you can 'catch' it in a variable
 console.log(testArray) // output: [ 1, 2, 3]
 
-// Add to End of Array (.push()) - mutates the array via pass-by-referencing
+// Add to End of Array (.push()) - mutates the array via pass-by-r      eferencing - M 
 console.log (testArray.push(4)) // output: 4 - returns new LENGTH of the array formed
 console.log(testArray) // output: [ 1, 2, 3, 4 ]
 
 console.log("lINE IN THE SAND")
 
-// Remove from Front of Array (.shift())
-console.log(testArray.shift()) // Returns removed element: [1]
+// Remove from Front of Array (.shift()) - M
+console.log(testArray.shift()) // returns removed element [1] meaning you can 'catch' it in a variable
 console.log(testArray) // output: [ 2, 3, 4]
 
-// Adds to Front of Array (.unshift())
+// Adds to Front of Array (.unshift()) - M 
 console.log(testArray.unshift(1)) // adds element
 console.log(testArray) // output: [ 1, 2, 3, 4 ]
 
 console.log("lINE IN THE SAND")
 
-// Add/Remove an Item by Index (.splice(index, howmany, item1, ..., itemX))  
+// Add/Remove/Replace an Item by Index (.splice(index, howmany, item1, ..., itemX)) - M 
 console.log (testArray.splice(0, 3, 7, 6, 5 )) // Returns removed elements: [ 1, 2, 3 ]
 console.log (testArray) // Output: [ 7, 6, 5, 4 ]
+// 1st parameter is starting point of the splice
+// 2nd parameter is how many elements to remove
+// Third parameter onwards allows input of values into that same position 
 
-// Copy An Array (.slice(start,end+1)) - NM! 
+// Copy An Array (.slice(start,end+1)) - NM
 console.log(testArray.slice(0,3)) // Returns removed elements [ 7, 6, 5 ]
 console.log (testArray) // Output: [ 7, 6, 5, 4 ] because array is not mutated  
+// 1st parameter is start point of the slice
+// 2nd parameter is end point of the slice, non-inclusive. 
+// If none, method copies to the end of array. 
 
+// Split a String into an Array of strings - returns a new string NM
+// str.split(separator, limit) 
+let story = "blah blah blah"
+console.log(story.split(" ")) // Output: ["blah", "blah", "blah"]
 
+// Concatenates multiple Arrays (.concat()) - NM
 
-
+// Add to an array (spread operator copies original array and adds to new array)... - NM
+const arr1 = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = [...arr1, 'f']; // ['a', 'b', 'c', 'd', 'e', 'f']
+const arr3 = ['z', ...arr1]; // ['z', 'a', 'b', 'c', 'd', 'e']
 
 
 
