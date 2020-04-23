@@ -1,6 +1,6 @@
 
 // Q: Write a function that finds the word that appears the greatest number of times.
-// A: Strategy! 
+/* A: Strategy! 
 1. Declare an array variable 'unique' to store unique words 
 2. Iterate through the betterWords array with a check to see if the word already exists in the 'unique' array
 3. If it doesn't exist, then push to 'unique' using slice (NM!)
@@ -12,7 +12,7 @@ let betterWords = story.split(" ")
 
 // The below obtains all the unique values from initial array, stored in 'unique' array
 
-const obtainUnique = (array) => {
+const obtainUnique = (array, unique) => {
 
   array.filter((word) => {
   let indexA = array.indexOf(word);
@@ -27,7 +27,7 @@ const obtainUnique = (array) => {
 
 // The below creates a 2D array with the values from unique, to allow a count for each unique value 
 
-const create2D = () => {
+const create2D = (unique) => {
   uniqueCount = unique.map((word)=> {
     return [word,0]
 }) 
@@ -69,12 +69,10 @@ const frequencyCompare = () => {
 
 // WRITE A FUNCTION THAT INCORPORATE ALL OF THE ABOVE
 
-let unique = []; 
-
 const doAll = (array) => { 
-  let unique = []; 
- obtainUnique(array); 
- create2D();
+ let unique = []; 
+ obtainUnique(array,unique); 
+ create2D(unique);
  frequencyCount(array);
  frequencyCompare();
 }
