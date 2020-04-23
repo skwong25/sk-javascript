@@ -1,13 +1,13 @@
 // << INTRO TO ITERATORS (ITERATION METHODS)>>
 
-// JS Built-in methods are alternative to 'for' loop 
+// JS Built-in methods are alternative to 'for' loops
 // called on arrays to manipulate elements and return values
 // we will learn the syntax for these methods, their return values
 // how to use documentation to understand them, how to choose appropriate iterator for the task
 
 // ----------------
 
-// 1. .forEach() METHOD (arrays, maps and sets) - syntax and example:
+// 1. .forEach() METHOD (arrays, maps and sets): 
 // executes the same code for each element of array it iterates over
 
 arr.forEach(callback(currentValue [, index [, array]])[, thisArg])
@@ -16,7 +16,7 @@ let arr = [1,2,3,4];
 arr.forEach((e)=>{console.log(e)});
 // each element is assigned to 'e' ('currentValue') on each iterative loop
 // saving grace post: https://medium.com/javascript-in-plain-english/foreach-loop-in-javascript-6b19e78d655b
-// note that forEach skips empty elements
+// returns undefined. .forEach() skips empty elements.
 
 // ----------------
 
@@ -29,8 +29,9 @@ artists.forEach(artist => {
 }); // Outputs: prints 'Picasso is one of my favorite artists.'etc
 
 // ----------------
-
-// * codecademy example 1:
+ 
+// All 3 codecademy 'groceries' egs showcase different iteration methods, but do the same thing!
+// * codecademy example 1 (using a function expression):
 let groceries = [ "brown sugar", "salt", "cranberres", "walnuts"]
 
 groceries.forEach(function(groceryItem){
@@ -47,31 +48,54 @@ groceries.forEach(function(groceryItem){
 
 // ----------------
 
-// * codecademy example 2:
+// * codecademy example 2 (using an arrow function):
 groceries.forEach(groceryItem => console.log(groceryItem));
-
-// QUESTION - is this defining an anonymous function or is it just independent forEach syntax? 
-// ANSWER - compared to declaration: it is similar to declaring a function WITHOUT the functionName 
-//          compared to function expression: no function keyword, no functionName, less brackets
-//          the callback function in the above egs IS an anonymous function 
-
-// FUNCTION REMINDER: 
-function functionName() {} // function declaration
-const variableIdentifier = () => {} // function expressions 
-const variableIdentifier = function () {} // anonymous functions stored within a variable 
 
 // ----------------
 
-// Alternatively we can DEFINE a FUNCTION BEFOREHAND 
-// * codecademy example 3:
-
+// * codecademy example 3 (using a pre-defined function):
 function printGrocery(element){
   console.log(element);
 }
 
 groceries.forEach(printGrocery);
 
-// All 3 codecademy 'groceries' egs showcase different iteration methods, but do the same thing!
+// ----------------
+
+// FUNCTION REMINDER: 
+function functionName() {} // function declaration
+const variableIdentifier = () => {} // arrow function  
+const variableIdentifier = function () {} // 'literal' function, stored within a variable 
+
+// ----------------
+
+// Codecademy forum has broken down the translation from a literal function into the syntax we have seen
+// It seems that the parameter for .reduce() has been PREDEFINED as to accept a function 
+// (so no need for 'function' keyword)
+
+array.reduce(callback)
+
+// The callback can be a literal function: 
+
+array.reduce(function (a, b) {
+  return a + b;
+})
+
+// OR fat arrow function:
+
+iterable.reduce(f(a, b) => {
+  return a + b;
+})
+
+// refactored down to a concise body arrow function: 
+
+iterable.reduce((a, b) => a + b)
+
+// OR pre-defined function 
+
+a_add_b = (a, b) => a + b;
+
+iterable.reduce(a_add_b)
 
 // ----------------
 

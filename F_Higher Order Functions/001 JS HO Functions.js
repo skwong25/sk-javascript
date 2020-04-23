@@ -36,8 +36,9 @@ console.log(busy.name); // output: announceThatIAmDoingImportantWork
 // A Higher-Order Function is a function that accepts functions as parameters (callback functions)
 // or returns a function (function factories) or both! 
 // Note! different from a 'helper' function - when a function is called WITHIN another function body
-// When you pass a function in as argument, you don't invoke it. Invoking the function evaluates to the return value of that function call. 
-// With callbacks, we pass the function itself ( - ()) 
+// When you pass a function in as argument, you don't invoke it. 
+// ( as invoking the function evaluates to the return value of that function call.)
+// With callbacks, we pass the function itself ( minus ()) 
 // E.g This higher-order function records the amount of time any callback function takes to run:
 
 const timeFuncRuntime = funcParameter => {
@@ -51,7 +52,8 @@ const addOneToOne = () => 1 + 1;
 
 timeFuncRuntime(addOneToOne);
 
-// You can pass anonymous functions too! Eg. anonymous function that counts down 10 - 1:
+// The above calculates how long it takes for a given function to run, in this case the addOneToOne function executing 1+1
+// You can pass anonymous functions too! Eg. The below passes the argument of an anonymous function (that counts down 10 - 1):
 
 timeFuncRuntime(() => {
   for (let i = 10; i>0; i--){
