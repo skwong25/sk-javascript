@@ -159,3 +159,79 @@ array.reduce((a, b) => a + ' ' + b)
 
 // Good article on reduce:
 https://www.freecodecamp.org/news/reduce-f47a7da511a9/
+
+// The Four Arguments of .Reduce() :
+// and a secondary parameter of initialValue of accumulator (if no initialValue provided, the accumulator is [0] and currentValue is [1]) 
+
+array. reduce(callback(accumulator, currentValue, currentIndex, sourceArray), initialValue)
+
+// Example using Index and Array arguments: 
+// The use of index and array allows us to transform the final accumulated total before returning. 
+
+const euros = [29.76, 41.85, 46.5];
+
+const average = euros.reduce((total, amount, index, array) => {
+  total += amount;
+  if( index === array.length-1) { 
+    return total/array.length;
+  }else { 
+    return total;
+  }
+});
+
+average // 39.37
+
+// ----------------
+
+// Example, getting .reduce() to return a new array (why wouldn't you just use .map() or .filter()?): 
+// Effectively does away with the 'running total' by pushing it away each time.
+// However if you want to chain filter and then map, reduce() allows you to do both in one step. 
+
+const euros = [29.76, 41.85, 46.5];
+
+const doubled = euros.reduce((total, amount) => {
+  total.push(amount * 2);
+  return total;
+}, []);
+
+doubled // [59.52, 83.7, 93]
+
+// Note to self - the calculator could have been done with .reduce()
+
+// ----------------
+
+// Example, using .reduce() to keep a tally, stored as key-value pairs:
+// Don't fully understand the logic of below: 
+
+const fruitBasket = ['banana', 'cherry', 'orange', 'apple', 'cherry', 'orange', 'apple', 'banana', 'cherry', 'orange', 'fig' ];
+
+fruitBasket.reduce((tally, fruit) => {
+  if (!tally[fruit]) {
+    tally[fruit] = 1;
+  } else {
+    tally[fruit] = tally[fruit] + 1;
+  }
+  return tally;
+}, {});
+
+// refactored as:
+
+
+const count = fruitBasket.reduce( (tally, fruit) => {
+  tally[fruit] = (tally[fruit] || 0) + 1 ;
+  return tally;
+} , {})
+
+count // { banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1 }
+
+// ----------------
+
+// Example, using .reduce() to iterate through an array functions - a 'pipeline'
+
+let pipeline = [increment, double, decrement];
+
+const result = pipeline.reduce(function(total, func) {
+  return func(total);
+}, 1);
+
+result // 3

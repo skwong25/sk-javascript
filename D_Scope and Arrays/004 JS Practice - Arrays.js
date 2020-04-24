@@ -132,6 +132,10 @@ const arr1 = ['a', 'b', 'c', 'd', 'e'];
 const arr2 = [...arr1, 'f']; // ['a', 'b', 'c', 'd', 'e', 'f']
 const arr3 = ['z', ...arr1]; // ['z', 'a', 'b', 'c', 'd', 'e']
 
+// Sorts an Array (.sort([compareFunction])) - NM
+// The compareFunction specifies a function that defines the sort order. Otherwise, all values converted to strings and alphbetically. 
+// Can be used to sort a 2d array!? Need to understand the compare function! 
+
 
 
 
