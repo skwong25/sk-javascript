@@ -13,7 +13,7 @@
         // alert () {} 
 
       - navigating nested objects via chained operators
-      - iterate through objects with for...in syntax
+      - iterate through objects with for...in syntax (for enumerables)
       - remember that objects are 'passed-by-reference', meaning changes are permanent 
 
 // -------------- */
@@ -99,17 +99,19 @@ const what = (object, nameProp) => {
   return object[nameProp]; 
 }
 
-console.log (what(house,'bedrooms'));
+console.log (what(house,'bedrooms')); // Output: 4
 
 // The function 'whodat' accepts an occupant 'number' and returns their name
 
-console.log(house.occupants['1']);
+console.log(house.occupants['1']); 
+// Output: { name: 'father', age: 70 }
 
 const whodat = (number) => {
   return house.occupants[number].name;
 }
 
-console.log (whodat('1'));
+console.log (whodat('1')); 
+// Output: father 
 
 
 // -------------- 

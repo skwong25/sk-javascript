@@ -1,4 +1,4 @@
-/*  1   Function Declaration
+  /*  1   Function Declaration
 A function is a reusable block of code that performs a specific task. 
 Just like a variable declaration binds a value to a variable name,
 a function declaration binds a function to an identifier, consisting of:

@@ -50,11 +50,11 @@ var fruits = ["Banana", "Orange", "Apple", "Mango"];
 var a = fruits.indexOf("Apple");
 
 // Revew other array methods here
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 
 // 6. Will mutating an Array within a Function keep the change outside the Function?
 
-const flowers = ['peony', 'daffodil', 'marigold'];
+let flowers = ["peony", "daffodil", "marigold"];
 // The flowers array has 3 elements
 
 function addFlower(arr) {
@@ -76,5 +76,44 @@ const nestedArr = [[1], [2, 3]];
 // To access elements within a nested array, 'chain' (/add on) bracket notation with index values 
 console.log(nestedArr[1]); // Output: [2, 3]
 console.log(nestedArr[1][0]); // Output: 2
+
+
+// -------------- 
+
+// Additional Section! ARRAY DESTRUCTURING 
+// Basic variable assignment: 
+
+let basicArray = [1,2,3]; // defined an array
+let [A,B,C] = basicArray; // created 3 x variables with values extracted from the array 
+console.log(A); // Output: 1
+console.log(B); // Output: 2 
+console.log(C); // Output: 3
+
+// This assignment can be SEPERATE from the variable declaration: 
+
+let D,E,F,G;
+[D,E] = [4,5]
+console.log(D); // Output: 4
+console.log(E); // Output: 5
+
+// Variables can be SWAPPED
+[D,E] = [E,D]
+console.log(D); // Output: 4
+console.log(E); // Output: 4
+
+// Variables can be assigned a DEFAULT (as per destructuring objects)
+// in the case that a value 'unpacked' from an array is 'undefined'
+
+let F,G,H,J;
+[F=5, G=5, H=5, J=5] = basicArray;
+console.log(`F = ${F}, G = ${G}, H = ${H}, J = ${J}`);
+// Output: F = 1, G = 2, H = 3, J = 5
+// J defaulted to the 'fallback' value because no corresponding value existed within basicArray 
+
+
+// Additional Techniques for Destructuring Arrays here:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+
+// -------------- 
 
 

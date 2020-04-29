@@ -69,7 +69,7 @@ delete spaceship.type;  // Removes the type property
       // console is a global JS {object} and .log() is the method on that object
       // Math is a global JS {object} and .floor() is a method on it. 
 
-// We can include methods in our {object literals} by creating key-value pairs. 
+// We include methods in our {object literals} as key-value pairs. 
 // The key serves as our method's name, while the value is an anonymous function expression. 
 
 const alienShip = {
@@ -165,16 +165,16 @@ let alienShip = {
   }
 };
 
-console.log(alienShip.hi); // Output: [Function:hi] (this syntax retrieves the key-value pair)
+console.log(alienShip.hi); // Output: [Function:hi] (this syntax accesses the value to the key 'hi'')
 console.log(alienShip.hi()); // hello (this syntax invokes the method)
-console.log(alienShip); // { hi: [Function], bye: [Function: bye] } (DON'T UNDERSTAND WHY THEY ARE DIFF)
+console.log(alienShip); // { hi: [Function], bye: [Function: bye] } (retrieves the key value pair)
 
 // --------------
 
 
 // 7. LOOPING THROUGH OBJECTS
 // Recap: Loops are programming tools that repeat a block of code until a condition is met
-// Can iterate through arrays via index, but key-value pairs are not ordered! 
+// Can iterate through arrays via index (iterable), but key-value pairs are not ordered! (enumerable)
 // 'for...in' syntax executes a block of code for each property in an object. EG:
 
 let spaceship = {
@@ -227,7 +227,7 @@ translator: Shauna */
       - an object literal is {key:value}
       - access, add or edit a property via '.' notation or ['bracket'] notation.
       - add methods to object literals using key-value syntax with anonymous function expressions as values
-        (works when function expressions assigned to variables)
+        (also works when function expressions assigned to variables (pre-defined functions)
       - navigate nested objects via chained operators
       - objects are mutable, they can change their properties (even when declared with const)
       - objects are passed by reference, meaning changes are permanent
