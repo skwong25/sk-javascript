@@ -73,52 +73,19 @@ let menu = {
     // console.log(dish);
     return dish; // Outputs: undefined
   },
+  generateRandomMeal () {
+    let appetiser = this.getRandomDishFromCourse ('appetisers');
+    appetiser = (Object.values(appetiser)); // included this to tidy up output
+    let main = this.getRandomDishFromCourse ('mains');
+    main = (Object.values(main));
+    let dessert = this.getRandomDishFromCourse ('desserts');
+    dessert = (Object.values(dessert));
+    let cost = appetiser[1] + main [1] + dessert [1] ;
+    return(`Menu // Appetiser: ${appetiser[0]} // Main: ${main[0]} // Dessert: ${dessert[0]} // Total: £${cost}`)
+  },
 }
 
-// Adding dishes to each course >> 
-menu.addDishToCourse ('appetisers', 'Soup', 10); 
-menu.addDishToCourse ('appetisers', 'Pate', 10);
-menu.addDishToCourse ('mains', 'Chicken', 20);
-menu.addDishToCourse ('mains', 'Fish', 20);
-menu.addDishToCourse ('desserts', 'Jelly', 5);
-menu.addDishToCourse ('desserts', 'Cake', 5);
-
-// TESTING >> 
-// console.log(menu.getRandomDishFromCourse('mains')); // 
-// console.log(menu.courses); // prints the full menu 
-// console.log(menu.getAppetisers)  // This works!
-// console.log(Object.values(menu.getAppetisers))
-
-const generateRandomMeal = () => {
-  console.log("Menu:")
-  let appetiser = menu.getRandomDishFromCourse ('appetisers');
-  appetiser = (Object.values(appetiser));
-  console.log('To Start: ' + appetiser[0])
-  let main = menu.getRandomDishFromCourse ('mains');
-  main = (Object.values(main));
-  console.log('The Main: ' + main[0])
-  let dessert = menu.getRandomDishFromCourse ('desserts');
-  dessert = (Object.values(dessert))
-  console.log('To Finish: ' + dessert[0]);
-  let cost = appetiser[1] + main [1] + dessert [1] 
-  console.log('The Damage: £' + cost)
-}
-
-let meal = menu.generateRandomMeal() 
-console.log(meal); 
-// ISSUE ^ this should not be called until meal is logged
-// I believe it is because generateRandomMeal should not be printing anything
-// Also that function should be within the Object 'menu'. Rectify this tomorrow! 
-
-/* The below is alternative code for STEP 10
-// It uses a 'for' loop to avoid repetition of code, but is probably less clear..! 
-const generateRandomMeal = () => {
-let courses = ['appetisers','mains','desserts'];
-for (i = 0; i < courses.length; i++ ) {
-  console.log(courses[i] + ':') ;
-  console.log(menu.getRandomDishFromCourse(courses[i]));
-  } 
-} */
+// -------------- 
 
 // STEP 2
 // Add a '_courses' property to your menu object, set its value to an empty object 
@@ -151,9 +118,54 @@ for (i = 0; i < courses.length; i++ ) {
 // This should retrieve the array of given course's dishes, to be stored in variable 'dishes',
 // Then it should generate a random index and return the dish located at that index in 'dishes'.
 
+// -------------- 
+
+// For alternative code for STEP 10 function using a 'for' loop 
+// See 006 JS Practice - Meal Maker Xtra
+
+// -------------- 
+
 // STEP 11
 // Create a .generateRandomMeal() function that automatically generates a three-course meal
 // This creates an 'appetiser' variable set to result of calling .getRandomDishFromCourse(appetizers)
 // Do the same for 'mains' and 'desserts'
 // It returns a string that contains the name of each of the dishes and total price of each meal
 
+// LESSON! Sometimes you want to return a value but not have it print onto console yet
+// If a function just returns a value, then it is easier to control when it should log
+
+// -------------- 
+
+// STEP 12
+// Add dishes to each course of the menu using .addDishToCourse() function:
+menu.addDishToCourse ('appetisers', 'Soup', 10); 
+menu.addDishToCourse ('appetisers', 'Pate', 10);
+menu.addDishToCourse ('mains', 'Chicken', 20);
+menu.addDishToCourse ('mains', 'Fish', 20);
+menu.addDishToCourse ('desserts', 'Jelly', 5);
+menu.addDishToCourse ('desserts', 'Cake', 5);
+
+// -------------- 
+
+// TESTING >> 
+console.log(menu.getRandomDishFromCourse('mains')); 
+// >> tests dish randomiser: { name: 'Chicken', price: 20 }
+console.log(menu.courses); 
+// >> testing getter method - prints the full menu 
+console.log(menu.getAppetisers)  
+// >> testing getter method - prints appetisers: 
+// [ { name: 'Soup', price: 10 }, { name: 'Pate', price: 10 } ]
+console.log(Object.values(menu.getAppetisers)) 
+// >> tests built-in Object.values method
+// >> Note DOES NOT WORK, Object methods only work on objects, whereas this is an array OF objects.
+
+// -------------- 
+
+// STEP 13
+// Generate a meal by using the .generateRandomMeal() function  
+// Save it to a variable called meal, print out your meal
+
+
+let meal = menu.generateRandomMeal() 
+ console.log(meal); 
+// Output: Menu // Appetiser: Soup // Main: Fish // Dessert: Jelly // Total: £35
