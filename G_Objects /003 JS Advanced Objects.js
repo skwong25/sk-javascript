@@ -59,6 +59,7 @@ There are cases in which we don't want other code accessing/updating an object's
 Eg. Can cause unwanted side-effects, such as type-coercion (eg if a certain datatype is required)
 JS does not have privacy built-in, so...naming conventions! 
     - prepend a property with underscore Eg: _amount: 1000
+    (this indicates that properties should not be accessed directly)
     
 
 // --------------
@@ -344,7 +345,7 @@ console.log(robotEntries);
   [ 'sentient', false ],
   [ 'armor', 'Steel-plated' ],
   [ 'energyLevel', 75 ] ] */
-// Object.entries returns an arrays with each key-value pair, all within a larger array.
+// Object.entries returns each key-value pair as an array, all within a larger array.
 
 // Use Object.assign to create another object 'newRobot' like robot 
 // but with additional properties {laserBlaster: true, voiceRecognition: true}:
