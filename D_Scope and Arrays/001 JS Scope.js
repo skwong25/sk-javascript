@@ -21,7 +21,7 @@ A. Scope pollution: too many global variables in global namespace
   If a variable does not need to exist outside a block— it shouldn’t! 
   
   Tightly scoping:
-  - visually defines code blocks into modular
+  - visually defines code blocks into modular - easier to control and manage. 
   - improves clarity as variables are grouped with associated code.
   - it saves memory as code ceases to exist after block finishes running
   - however duplicate code indicates variable may be scoped too

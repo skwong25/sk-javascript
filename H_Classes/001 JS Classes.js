@@ -279,6 +279,10 @@ const nurseOlynyk = new Nurse ('Olynyk', ['Trauma', 'Pediatrics'])
 nurseOlynyk.addCertification('Blood letting');
 console.log(nurseOlynyk.certifications); // Output: [ 'Trauma', 'Pediatrics', 'Blood letting' ]
 
+// LESSON! 
+// A subclass automatically inherits all of the parent class getters, setters and methods
+// The 'super' keyword is used to 'set' which parent property it inherits 
+
 // --------------
 
 // 08 STATIC METHODS >>
