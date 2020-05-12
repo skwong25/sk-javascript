@@ -89,6 +89,8 @@ let writingUtensil = tool || 'pen'
 console.log(`The ${writingUtensil} is mightier than the sword.`);
 
 // 5 Ternary Operators are used to simplify if ... else statements
+// Note that TO's evaluate to an expression, expressions cannot contain a return statement
+// Ask yourself 'can you assign that expression to a variable?'
 
 let isNightTime = true;
 

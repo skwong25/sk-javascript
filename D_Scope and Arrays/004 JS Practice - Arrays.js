@@ -121,9 +121,15 @@ console.log (testArray) // Output: [ 7, 6, 5, 4 ] because array is not mutated
 // If none, method copies to the end of array. 
 
 // Split a String into an Array of strings - returns a new string NM
-// str.split(separator, limit) 
+// str.split( separator , limit)
+// the 'seperator' determines where to make split (removing that character)
+// the 'limit' determines the number of elements it returns
 let story = "blah blah blah"
-console.log(story.split(" ")) // Output: ["blah", "blah", "blah"]
+console.log(story.split(" ", 2)) // Output: ["blah", "blah"]
+
+let alphabet = 'xoxoxoxox';
+let newAlphabet = alphabet.split('o').join('x');
+console.log(newAlphabet); // xxxxxxxxx
 
 // Concatenates multiple Arrays (.concat()) - NM
 
@@ -136,8 +142,34 @@ const arr3 = ['z', ...arr1]; // ['z', 'a', 'b', 'c', 'd', 'e']
 // The compareFunction specifies a function that defines the sort order. Otherwise, all values converted to strings and alphbetically. 
 // Can be used to sort a 2d array!? Need to understand the compare function! 
 
+// Extract characters from a string (.substring(start, end)) - NM 
+let story = "blah blah blah"
+console.log(story.substring(10)) // Output: blah
+console.log(story)
 
+// Concatenates the values in an array (.join(" ")) - NM
+// returns a new string 
+let story = ["blah", "blah", "blah"]
+console.log(story.join(" ")) // Output: blah blah blah
 
+// Reverse the order of elements in place (.reverse()) - M
+let alphabet = ['a', 'b', 'c']
+console.log(alphabet.reverse()) // [ 'c', 'b', 'a' ]
+console.log(alphabet) // [ 'c', 'b', 'a' ]
+
+// STRING METHODS:
+
+//  .replace() returns a new string with some or all matches of a pattern replaced
+//  by a 'replacement'.
+
+const p = 'The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?';
+
+const regex = /dog/gi;
+console.log(p.replace(regex, 'monkey'));
+// "The quick brown fox jumps over the lazy ferret. If the ferret reacted, was it really lazy?"
+
+console.log(p.replace('dog', 'monkey'));
+// Output: "The quick brown fox jumps over the lazy monkey. If the dog reacted, was it really lazy?"
 
 
 
