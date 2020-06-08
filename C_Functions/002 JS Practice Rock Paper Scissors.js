@@ -4,7 +4,8 @@ let userInput = 'BOMB';
 // Reassigns the 'userInput' variable as lowercase
 let userChoice = userInput.toLowerCase();
 
-// Defines 'getUserChoice' function using a function expression, with userInput as a parameter. This checks that userInput value is valid and captures in Variable 'userChoice': 
+// Defines 'getUserChoice' function using a function expression, with userInput as a parameter. 
+// This checks that userInput value is valid and captures in Variable 'userChoice': 
 
 const getUserChoice = function (userChoice) {
  if (userChoice === 'rock'){
@@ -21,9 +22,20 @@ const getUserChoice = function (userChoice) {
  }
 
 getUserChoice(userChoice);
-
 // Prints the value inputted by Player (if valid)
 console.log (`Player1: ${userChoice}`)
+
+/* // Alternative check for accepted values using iterator .some() , returns boolean  
+
+let acceptableValues = ['rock','scissors','paper','bomb']
+let checked = acceptableValues.some(item => {
+  return item === userChoice; 
+})
+
+checked ? console.log (`Player1: ${userChoice}`) : console.log (`Invalid input`);
+
+*/
+
 // Declares function using the 'function' keyword: 
 function getComputerChoice () {return Math.floor(Math.random()*3)}
 let computerNumber = getComputerChoice()

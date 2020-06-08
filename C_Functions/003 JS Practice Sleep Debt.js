@@ -3,12 +3,14 @@
 let day = ""
 let hoursSlept = 1
 
-// remember there are two distinct ways of defining a function are 1) Function Declaration and 2) Function Expression 3) Arrow Function: 
+// remember there are two distinct ways of defining a function: 
+// 1) Function Declaration 2) Function Expression 2.1) Arrow Function: 
 
 // 1) function functionName () {}
 // 2) const variableName = function () {}
-// 3) const variableName = () => {} 
-// Arrow functions > Single parameters require no brackets. For a single -line function body, remove curly brackets for implicit return. 
+// 2.1) const variableName = () => {} 
+// Arrow functions > Single parameters require no brackets. 
+// For a single -line function body, remove curly brackets for implicit return. 
 
 function getSleepHours (day) {
   if (day === "Monday") {return 8

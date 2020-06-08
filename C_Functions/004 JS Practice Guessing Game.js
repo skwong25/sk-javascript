@@ -35,7 +35,7 @@ console.log (targetNumber)
 console.log (result)
 
 const updateScore = () => {
- result ? humanScore = humanScore += 1 : computerScore = computerScore += 1 
+ result ? humanScore ++ : computerScore ++ 
 }
 // I rephrased the above code from an if...else statement to a ternary operator.
 
@@ -49,8 +49,9 @@ const updateScore = winner => {
   }
 } */ 
 
-updateScore()
-// remember to run your function after defining it!!
+updateScore() // remember to run your function after defining it!!
+console.log(`Humans: ${humanScore} , Computer: ${computerScore}`)
 
-const advanceRound = () => currentRoundNumber +=1 
+const advanceRound = () => currentRoundNumber ++ 
 currentRoundNumber = advanceRound (currentRoundNumber)
+
