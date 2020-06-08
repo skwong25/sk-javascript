@@ -134,15 +134,52 @@ console.log(`forEach statement TallyD count: ${tallyOv}`)
 
 // ---------------- 
 
+// OR SOLUTION 4E using reduce.() to keep a tally of key-value pairs within an object 
+// This allows us to know exactly how many of each word is used
+
+let newArray = betterWords.filter((item) => {
+  return overusedWords.includes(item)
+})
+// First create an array of all instances of overused words. 
+console.log(newArray); // [ 'really', 'basically', 'really', 'very', 'very', 'very', 'very', 'very' ]
+
+let tallyObject = newArray.reduce((tally, word) => {
+  if (!tally[word]) {
+    tally[word] = 1;
+  } else {
+    tally[word] += 1;
+  }
+  return tally;
+},{})
+
+console.log(tallyObject) // { really: 2, basically: 1, very: 5 }
+
+// LESSON: Remember to ALWAYS RETURN at the end of each iteration for reduce()!
+
+// ---------------- 
+
 // STEP 5
 // Count how many sentences are in the paragraph
 
+/*  Failed code: 
+
 let tallySentence = betterWords.reduce((accumulator, word) => {
   let x = word.length-1;
-  if (word[x] === '.' || '!') {
-    accumulator ++
-   } return accumulator;
-}, 0)
+  if (word[x] === '.' || '!') { // below code is correct
+    accumulator ++;
+    return accumulator; // the accumulator is still within local scope of the 'if' statement  
+   } 
+}, 0) 
+
+*/
+
+let tallySentence = betterWords.reduce((accumulator,word)=>{
+  let x = word.length-1;
+  if (word[x] === '.' || word[x] === '!') {
+    accumulator++
+    } return accumulator;
+  }, 0)
+
 
 // ----------------
 
@@ -162,7 +199,7 @@ logInfo(storyWords, tallySentence, tallyOv);
 // STEP 7
 // Log the betterWords array as single string
 
-console.log(betterWords.join(" ")); 
+// console.log(betterWords.join(" ")); 
 
 // ----------------
 
@@ -175,8 +212,56 @@ This removes the overusedWord every other time (when the tally count is even) an
 if (tallyOv % 2 === 0) {;
   betterWords.splice(betterWords.indexOf(word), 1, 'indubitably');
 
+Q: Write a function that finds the word that appears the greatest number of times. */
 
+// tried using .sort() array method (but first need to make all lowercase using .toLowerCase() method)
+// and then not sure what to do? 
+// we would also need to get rid of all punctuation
+let lowerWords = betterWords.map((item)=> {
+  return item.toLowerCase();
+})
 
+lowerWords.sort(); // this doesn't hurt, makes it easier to see whats going on in next step
+
+// get rid of all punctuation and make all lowercase  
+/* failed code: because strings are immutable so mutating array methods like splice don't work!
+
+lowerWords.forEach((word)=>{
+  let x = word.length-1;
+  if (word[x] === '.' || word[x] === '!' || word[x] === ',') {
+    word.splice(x,1);
+    };
+  })
+
+*/
+
+// Use .reduce() & create an object of key-value pairs, that operates as a tally of each word 
+
+let objectWords = lowerWords.reduce((tally, word) => {
+  if ( !tally[word] ) {
+    tally[word] = 1;
+  } else {
+    tally[word] += 1;
+  } return tally; 
+}, {} )
+
+// console.log(objectWords)
+
+// Use for...in loop to iterate through the key-value pairs 
+// to find the key with the biggest value
+
+let mostCommon = "";
+let mostCommonCount = 0;
+
+for (let key in objectWords) {
+  if (objectWords[key] > mostCommonCount) {
+    mostCommonCount = objectWords[key];
+    mostCommon = key
+    // console.log(key + ": " + objectWords[key])
+  };
+  }
+
+console.log(`The Most Common Word is '${mostCommon}': ${mostCommonCount}`)
 
 
 

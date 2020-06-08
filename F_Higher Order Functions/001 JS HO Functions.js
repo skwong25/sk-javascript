@@ -82,6 +82,8 @@ console.log(name) //==>> Reference Error
 // The variable 'name' is within the showName function scope
 // can be accessed when the function showName is called:.
 
+// https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36
+
 // --------------
 
 // Function Factory FF (e.g 'add' below) is a higher order function that creates a function.

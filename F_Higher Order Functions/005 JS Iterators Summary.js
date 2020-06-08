@@ -120,7 +120,7 @@ console.log(startsWithP) // Output: 2
 
 
 //.REDUCE()
-const theLastWord = doubleWord.reduce((accumulator, word) => {
+const theLastWord = doubleWord.reduce((accumulator, word, index) => {
   return accumulator + word[0]; 
 }, 'word: ')
 
@@ -128,6 +128,7 @@ console.log(theLastWord); // Output:
 // .reduce() accumulates first letter of each word as it iterates over the array, returning one string 
 // if no second parameter set (as initialValue), it defaults to taking the first element 
 // as initial accumulator value and the first element is skipped as the currentValue. 
+// what the code block returns each iteration BECOMES the accumulator (i believe)
 
 
 // ----------------
@@ -138,9 +139,7 @@ console.log(theLastWord); // Output:
 
 -  callback function that can be pre-defined
 - function expression (an anonymous function)
-- arrow function (an anonymous function refactored)
-
-- challenge to programme game, in punctuation! */
+- arrow function (an anonymous function refactored) */
 
 
 // 10 CHALLENGES:

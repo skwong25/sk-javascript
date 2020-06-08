@@ -1,6 +1,6 @@
 
-// Q: Write a function that finds the word that appears the greatest number of times.
-/* A: Strategy! 
+/* Q: Write a function that finds the word that appears the greatest number of times.
+
 1. Declare an array variable 'unique' to store unique words 
 2. Iterate through the betterWords array with a check to see if the word already exists in the 'unique' array
 3. If it doesn't exist, then push to 'unique' using slice (NM!)
@@ -77,13 +77,9 @@ const doAll = (array) => {
  frequencyCompare();
 }
 
-doAll (betterWords); 
-
+doAll (betterWords);  
 // Output: Count is:123 // 2D array listing words and frequency count // The most used word is 'the' with a count of 11
 
 // LESSON! pay attention to variable scope! 
 // Remember to 'return' variables at the end of a function to allow the information to be used in the next function. 
 // Next task is to refactor the doAll function so that unique is not global scope variable!
-
-// AND READ THE REDUCE() PAGES WE FOUND! 
-// LOOK INTO THE 'SORT' FUNCTION 
