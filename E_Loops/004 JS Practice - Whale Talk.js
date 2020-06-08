@@ -55,3 +55,4 @@ for ( let i = 0; i < input.length; i++ ) {
 let whaleTalk = resultArray.join(" ")
 
 console.log(whaleTalk.toUpperCase())
+// Output: U U E E I E E A U U E E

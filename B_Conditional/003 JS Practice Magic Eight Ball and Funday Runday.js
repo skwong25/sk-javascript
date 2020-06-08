@@ -11,7 +11,7 @@ let userQuestion = "will lunch be tasty?";
 
 console.log(`So, ${userName}, you want to know ${userQuestion}`);
 
-let randomNumber = Math.floor(Math.random() * 8); 
+let randomNumber = Math.floor(Math.random() * 9); 
 
 let eightBall = "";
 
@@ -51,23 +51,52 @@ switch (randomNumber) {
 console.log(randomNumber + ": " + eightBall)
 
 
-let raceNumber = Math.floor(Math.random() * 1000);
+// Age distribution of the UK 2008-2018 
+// 18% 0-17
+// 62% 18-64
+// 20% 65+ 
+// The function generates the age category of the runner reflecting UK age distribution:
 
+const ageDistribution = () => {
+  let num = Math.random();
+  if (num <= .17 ){
+    return 'junior' ;
+  } else if (num > .17 && num < 62) {
+    return 'adult' ; 
+  } else {
+    return 'veteran'
+ };
+}
+
+let category = ageDistribution();
 let earlyRegistration = true;
-let runnerAge = 16;
 let raceTime = '0am'
+let raceNumber = Math.floor(Math.random() * 100)  
 
-if (runnerAge >= 18 && earlyRegistration) {
+/*
+if (category === 'adult' && earlyRegistration) {
   raceTime = '9.30am'
   raceNumber = (raceNumber + 1000);
-} else if (runnerAge > 18 && !earlyRegistration) {
+} else if (category === 'adult' && !earlyRegistration) {
   raceTime = '11.00am';
-} else {
+} else if (category === 'junior') {
   raceTime = '12.30pm';
-  }
-  
-  console.log(raceNumber);
-  console.log(runnerAge);
-  console.log(raceTime);
+}; */
 
-  console.log(`You are runner no. ${raceNumber}. Your run will begin at ${raceTime}.`);
+// The above code is neater in a switch statement : 
+
+switch (category) {
+  case 'adult':
+    earlyRegistration ? raceTime = '9.30am' : raceTime = '11.00am';
+    break; 
+  case 'junior' :
+    raceTime = '12.30pm';
+  default:
+    break;
+};
+
+if (category === 'veteran') {
+  console.log(`You are a ${category} and you are too old to run. Go sit down.`);
+} else { 
+  console.log(`You are ${category } runner no. ${raceNumber}. Your run will begin at ${raceTime}.`);
+}

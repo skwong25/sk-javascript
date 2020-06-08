@@ -25,7 +25,7 @@ console.log(meal); // Output: Enchiladas
 meal = 'Burrito';
 console.log(meal); // Output: Burrito
 
-// Note that a variable declared without a value, automatically initialises with the value 'undefined'  
+// Note that a variable declared without a value, automatically initialises with value 'undefined'  
 let price;
 console.log(price); // Output: undefined
 price = 350;
@@ -35,7 +35,7 @@ console.log(price); // Output: 350
 const myName = 'Gilberto';
 console.log(myName); // Output: Gilberto
 
-/* 5 Mathematical Assignment Operators (-+, -=, *=, and /= )
+/* 5 Mathematical Assignment Operators (+=, -=, *=, and /= )
 Use operators to calculate new values and assign them to variables */
 
 let w = 4;

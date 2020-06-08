@@ -49,12 +49,12 @@ for (let i = 0; i < myArray.length; i++) {
 // 4. The 'While' Loop - best when a loop need to execute for an undetermined number of times. 
 // Converting a'for' loop into a 'while' loop:
 
-// A for loop that prints 1, 2, and 3
+// A 'for' loop that prints 1, 2, and 3
 for (let counterOne = 1; counterOne < 4; counterOne++){
   console.log(counterOne);
 }
 
-// A while loop that prints 1, 2, and 3
+// A 'while' loop that prints 1, 2, and 3
 let counterTwo = 1;
 while (counterTwo < 4) {
   console.log(counterTwo);

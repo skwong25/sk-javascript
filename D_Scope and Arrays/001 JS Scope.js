@@ -31,13 +31,15 @@ A. Scope pollution: too many global variables in global namespace
     const dusk = true;
     let color = 'blue'; 
     if (dusk) {
-      let color = 'pink';
+      let color = 'pink'; // a 'new' variable is declared within the {block}
       console.log(color); // pink
     }
     console.log(color); // blue 
   };
   
-  console.log(color); // ReferenceError
+logSkyColor(); 
+
+console.log(color); // ReferenceError
 
 
 

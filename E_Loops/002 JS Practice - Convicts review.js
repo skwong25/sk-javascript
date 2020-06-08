@@ -5,22 +5,25 @@
 - creating a nested loop (loop within a loop)
 - 'while' loops (stopping condition is first, iterator variable is global)
 - 'do...while' loops (stopping condition is last)
-- using the 'break' keyword
+- using the 'break' keyword */
 
-2. do YP challenge
-
-// writing a 'for' loops to iterate through an array
-*/
-
+// write 'for' loop to iterate through an array
 let convicts = ['jayz', 'valjean', 'yoopi', 'donnie yen']
 let prisonCode = [24600, 24610, 24620, 24630]
 
 for (let i = 0; i < convicts.length; i++) {
   console.log("Prisoner " + prisonCode[i] + ": " + convicts[i])
-  
 }
 
-// creating a nested loop
+/* 
+Output:
+Prisoner 24600: jayz
+Prisoner 24610: valjean
+Prisoner 24620: yoopi
+Prisoner 24630: donnie yen
+*/
+
+// create a nested loop to verify a match for a wanted criminal
 for (let i = 0; i < convicts.length; i++) {
   for ( let j = 0; j < prisonCode.length; j++) {
     if (convicts[i] === 'valjean' && prisonCode[j] === 24610 ) {
@@ -49,9 +52,10 @@ do {
 
 for (k = 0; k < convicts.length; k++) {
   if (convicts[k] === "donnie yen") {
+    console.log("...suddenly all the bread is gone!")
     break;
   }
-  console.log(convicts[k]+"collects bread.")
+  console.log(convicts[k]+ " collects bread.")
   breadRations -- ;
   console.log("Bread remaining: " + breadRations)
 }

@@ -18,7 +18,7 @@ console.log(20.49)
 console.log(/*IGNORED!*/ 5);  // Still just prints 5 
 
 /* 2 There are 7 x Primitive Data Types
-Number - any number without quotes inc. decimal
+Number - any number, including decimals
 String - Any grouping of characters wrapped in single quotes ‘ … ‘ or double quotes “ … “
 Boolean - true or false (only two possible values - on/off switch)
 Null - intentional absence of a value null

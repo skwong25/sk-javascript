@@ -54,8 +54,7 @@ var a = fruits.indexOf("Apple");
 
 // 6. Will mutating an Array within a Function keep the change outside the Function?
 
-let flowers = ["peony", "daffodil", "marigold"];
-// The flowers array has 3 elements
+let flowers = ["peony", "daffodil", "marigold"]; // 3 elements
 
 function addFlower(arr) {
   arr.push('lily');
@@ -84,6 +83,12 @@ console.log(nestedArr[1][0]); // Output: 2
 // Basic variable assignment: 
 
 let basicArray = [1,2,3]; // defined an array
+
+// instead of writing:
+let A = basicArray [0];
+let B = basicArray [1];
+let C = basicArray [2]; 
+
 let [A,B,C] = basicArray; // created 3 x variables with values extracted from the array 
 console.log(A); // Output: 1
 console.log(B); // Output: 2 

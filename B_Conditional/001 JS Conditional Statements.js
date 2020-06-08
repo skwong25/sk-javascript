@@ -1,4 +1,4 @@
-/* 1 Conditional IF statements are composed of 
+  /* 1 Conditional IF statements are composed of 
 - the 'if' keyword followed by () followed by a {code block / block statement}
 - () contains a condition that evaluates to true or false
 - if the (condition) evaluates to true, the {code block} runs

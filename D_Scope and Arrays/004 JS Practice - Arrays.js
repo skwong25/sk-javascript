@@ -13,12 +13,12 @@ let nestedArray = [[5, 6], [7, 8], [9, 10]]
 let evenNumbers = `Even numbers are ${array[1]}, ${array[3]}, ${nestedArray [0][1]}, ${nestedArray [1][1]}, ${nestedArray [2][1]}.`
 console.log (evenNumbers); 
 
-// The below code uses methods to access properties via dot notation
+// Methods to access properties via dot notation
 console.log(array.length) // prints 4
 console.log (array.indexOf(1)) // prints 0  
 console.log (array.includes(2) // prints true
 
-// The below code redefines values to elements via index 
+// Redefine values to elements via index 
 const oddToEven = (arr) => {arr[1] = 1; arr[3] = 3;} // or: function oddToEven () {} 
 oddToEven(array);
 console.log(array);
@@ -26,10 +26,13 @@ console.log(array);
 console.log (nestedArray.indexOf(10))
 /* prints -1 (Note that .indexOf returns -1 if an element is not present.)
 NOTE: We cannot use array.indexOf('element') on complicated arrays (e.g. nested or 2d arrays)
-The below code is to check whether a nested array aleady contains a set of coordinates.
-How can we check the position of a value within a nested array? */
 
-// SOLUTION: 
+
+// --------------
+
+
+QUESTION A : How can we check the position of a value within a nested array? 
+SOLUTION: A nested 'for' loop checks whether a nested array contains a given value */
 function checkTen (array, value) {
     for (let a = 0; a < array.length; a++) {
         for (let b = 0; b < 2; b++) {
@@ -44,20 +47,20 @@ function checkTen (array, value) {
 checkTen (nestedArray, 10)
 // output: Index position of 10 is [2][1] 
 
+// QUESTION [A,A] : How can we check the position of given coordinates within an array?
+
 /* EXAMPLE of unsuccessful code to check whether coordinates are present in a 2D array: 
 if (arr.indexOf([x, y]) == -1) {
     arr.push([x, y]);
 } */
 
-// EXAMPLE of successful solution using a 'for' loop:
-// LESSON: 'return' statements end the code block  
+// SOLUTION: A nested 'for' loop (LESSON: rem to 'return' statements at end of a code block!)  
 var arr = [[2,3],[5,8],[1,1],[0,9],[5,7]];
 var coor1 = [0, 9];
 var coor2 = [1, 2];
 
 function isItemInArray(array, item) {
-    for (var i = 0; i < array.length; i++) {
-        // This if statement depends on the format of your array
+    for (let i = 0; i < array.length; i++) {
         if (array[i][0] == item[0] && array[i][1] == item[1]) {
             return true;   // Found it
         }
@@ -76,86 +79,87 @@ if (!isItemInArray(arr, [x, y])) {
    arr.push([x, y]);
 } */
 
-// ARRAY METHODS
+// --------------
 
-// Loop over an Array (.forEach) - NM
-testArray = [1,2,3,4]
-testArray.forEach(function(item){
-    item += 1; 
-    console.log(item); 
-})
-console.log(testArray) // output: [1,2,3,4]
 
-// Remove from End of Array (.pop()) - M
-console.log(testArray.pop()) // returns removed element [4] meaning you can 'catch' it in a variable
-console.log(testArray) // output: [ 1, 2, 3]
+// ARRAY METHODS >>>
+// (for iterators see 004 JS Iterators Summary)
 
-// Add to End of Array (.push()) - mutates the array via pass-by-r      eferencing - M 
-console.log (testArray.push(4)) // output: 4 - returns new LENGTH of the array formed
-console.log(testArray) // output: [ 1, 2, 3, 4 ]
+// .pop() - Remove from End of Array M
+let removedElement = testArray.pop() // returns removed element [4] 
+console.log(testArray) // prints: 1,2,3 
 
-console.log("lINE IN THE SAND")
+// .push() - Add to End of Array M 
+let newLength = testArray.push(10) // returns new length 4 (testArray.length after mutation)
+console.log(testArray) // prints: [ 1, 2, 3, 10 ]
 
-// Remove from Front of Array (.shift()) - M
-console.log(testArray.shift()) // returns removed element [1] meaning you can 'catch' it in a variable
+// .shift() - Remove from Front of Array M
+let removedElement = testArray.shift() // returns removed element [1]
 console.log(testArray) // output: [ 2, 3, 4]
 
-// Adds to Front of Array (.unshift()) - M 
-console.log(testArray.unshift(1)) // adds element
-console.log(testArray) // output: [ 1, 2, 3, 4 ]
+//.unshift() - Adds to Front of Array M 
+let newLength = testArray.unshift(0) // returns new length 5 (testArray.length after mutation)
+console.log(testArray) // output: [ 0, 1, 2, 3, 4 ]
 
-console.log("lINE IN THE SAND")
+// .reverse() - Reverse order of elements in place M
+let alphabet = ['a', 'b', 'c']
+console.log(alphabet.reverse()) // [ 'c', 'b', 'a' ]
+console.log(alphabet) // [ 'c', 'b', 'a' ]
 
-// Add/Remove/Replace an Item by Index (.splice(index, howmany, item1, ..., itemX)) - M 
-console.log (testArray.splice(0, 3, 7, 6, 5 )) // Returns removed elements: [ 1, 2, 3 ]
-console.log (testArray) // Output: [ 7, 6, 5, 4 ]
+// .join(" ") - Concatenates values of an array, array > string -  NM
+let question = ["who", "am", "I", "?"]
+console.log(question.join(" ")) // Returns a string: Who am I? 
+
+// --------------
+
+// .concat() - Concatenates Arrays NM 
+let joinedArrays = arr2.concat(arr3); ['a', 'b', 'c', 'd', 'e', 'f','z', 'a', 'b', 'c', 'd', 'e' ]
+
+// Spread operator '...' - Adds values to existing array, returns new array ) NM
+const arr1 = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['z', ...arr1, 'f']; // ['z','a', 'b', 'c', 'd', 'e', 'f'] 
+
+// NOTE! Use .concat() with defined array variables. Use SO with individual values. 
+// When argument is not an array - concat treats values as a whole, SO tries to iterate through
+// Examples:  
+
+x = 99;
+
+console.log(a.concat(x));   // [1, 2, 3, 99]
+console.log([...a, ...x]);  // TypeError: x is not iterable
+
+a = [1, 2, 3]
+x = 'hello';
+
+console.log(a.concat(x));  // [ 1, 2, 3, 'hello' ]
+console.log([...a, ...x]); // [ 1, 2, 3, 'h', 'e', 'l', 'l', 'o' ]
+
+
+// --------------
+
+
+// .splice() - Add/Remove/Replace Item by Index M
+// syntax: .splice(startIndex, howmanytoremove, addElement1, addElement2)
+let arrayOfRemoved = testArray.splice(0, 4, 'A','B','C') // Returns array of removed elements: [ 1, 2, 3, 4 ]
+console.log (testArray) // Output: [ 'A','B','C' ]
 // 1st parameter is starting point of the splice
 // 2nd parameter is how many elements to remove
 // Third parameter onwards allows input of values into that same position 
 
-// Copy An Array (.slice(start,end+1)) - NM
-console.log(testArray.slice(0,3)) // Returns removed elements [ 7, 6, 5 ]
-console.log (testArray) // Output: [ 7, 6, 5, 4 ] because array is not mutated  
+// .slice(start,end+1) - Copy Part/All of Array NM
+let slicedArrayInHalf = testArray.slice(0,2)) // Returns array copy of 'sliced' elements [ 1, 2 ]
 // 1st parameter is start point of the slice
 // 2nd parameter is end point of the slice, non-inclusive. 
 // If none, method copies to the end of array. 
 
-// Split a String into an Array of strings - returns a new string NM
-// str.split( separator , limit)
-// the 'seperator' determines where to make split (removing that character)
-// the 'limit' determines the number of elements it returns
-let story = "blah blah blah"
-console.log(story.split(" ", 2)) // Output: ["blah", "blah"]
+// .sort(compareFunction) - Sorts Array as strings in ascending, alphabetical order NM
+// If we want values sorted numerically, the compareFunction is required to define sort order. 
+// arr.sort(function(a, b){return a-b}) - ascending
+// arr.sort(function(a, b){return a-b}) - descending
 
-let alphabet = 'xoxoxoxox';
-let newAlphabet = alphabet.split('o').join('x');
-console.log(newAlphabet); // xxxxxxxxx
 
-// Concatenates multiple Arrays (.concat()) - NM
+// --------------
 
-// Add to an array (spread operator copies original array and adds to new array)... - NM
-const arr1 = ['a', 'b', 'c', 'd', 'e'];
-const arr2 = [...arr1, 'f']; // ['a', 'b', 'c', 'd', 'e', 'f']
-const arr3 = ['z', ...arr1]; // ['z', 'a', 'b', 'c', 'd', 'e']
-
-// Sorts an Array (.sort([compareFunction])) - NM
-// The compareFunction specifies a function that defines the sort order. Otherwise, all values converted to strings and alphbetically. 
-// Can be used to sort a 2d array!? Need to understand the compare function! 
-
-// Extract characters from a string (.substring(start, end)) - NM 
-let story = "blah blah blah"
-console.log(story.substring(10)) // Output: blah
-console.log(story)
-
-// Concatenates the values in an array (.join(" ")) - NM
-// returns a new string 
-let story = ["blah", "blah", "blah"]
-console.log(story.join(" ")) // Output: blah blah blah
-
-// Reverse the order of elements in place (.reverse()) - M
-let alphabet = ['a', 'b', 'c']
-console.log(alphabet.reverse()) // [ 'c', 'b', 'a' ]
-console.log(alphabet) // [ 'c', 'b', 'a' ]
 
 // STRING METHODS:
 
@@ -171,5 +175,18 @@ console.log(p.replace(regex, 'monkey'));
 console.log(p.replace('dog', 'monkey'));
 // Output: "The quick brown fox jumps over the lazy monkey. If the dog reacted, was it really lazy?"
 
+// Split a String into an Array of strings - returns a new string NM
+// str.split( separator , limit)
+// the 'seperator' determines where to make split (removing that character)
+// the 'limit' determines the number of elements it returns
+let story = "blah blah blah"
+console.log(story.split(" ", 2)) // Output: ["blah", "blah"]
 
+let alphabet = 'xoxoxoxox';
+let newAlphabet = alphabet.split('o').join('x');
+console.log(newAlphabet); // xxxxxxxxx
 
+// Extract characters from a string (.substring(start, end)) - NM 
+let story = "blah blah blah"
+console.log(story.substring(10)) // Output: blah
+console.log(story)

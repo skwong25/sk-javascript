@@ -92,8 +92,7 @@ const isItThere = (word) => {
 // Pushes companies identified into a new array called 'newNest'.
 const idInvalidCardCompanies = (array) => {
   for (let i = 0; i < array.length; i++ ) {
-    if (array[i][0] === 3 && !isItThere("Amex")) {
-      companiesList.push("Amex")
+    if (array[i][0] === 3 && !isItThere("Amex")) { companiesList.push("Amex")
     } else if (array[i][0] === 4 && !isItThere("Visa")) {      companiesList.push("Visa")
     } else if (array[i][0] === 5 && !isItThere("Mastercard")) {      companiesList.push("Mastercard");
     }   else if (array[i][0] === 6 && !isItThere("Discover"))     { companiesList.push("Discover")
@@ -110,6 +109,9 @@ const idInvalidCardCompanies = (array) => {
 // Alternative way of checking for companies' identifying unique digits is using switch...case statement
 // The 'if' statement is more appropriate than the ternary operator
 // The return of 'false' is confusing, when in actuality we want it to do nothing. 
+
+// 26/05/2020 Revision
+// Alternative 
 
 switch (array[i][0]){
     case 3:
@@ -145,4 +147,108 @@ const convertArray = () => {
 convertArray(input)
 console.log(finalArray)
 
-// Create a function that will convert invalid numbers in valid numbers
+/*
+
+// 26/05/2020 Revision
+// Alternative 
+
+const validateCred = (array) => {
+reversedArr = array.reverse();
+totalSum = reversedArr.reduce((accumulator,currentValue,index) => {
+  if (index % 2 !== 0) {
+    let doubled = currentValue * 2;
+    if (doubled > 9) {
+      accumulator += doubled - 9; 
+      } else { accumulator += doubled;
+    }} else { accumulator += currentValue;
+  }  
+  return accumulator;
+})
+
+  if (totalSum % 10 === 0) {
+    return true;
+    } else { return false;
+  };  
+}
+
+// REFLECTIONs: 
+// .reverse() is an alternative to iterating backwards in a 'for' loop from the check digit 
+// iterating each index postion  is clearer than iterating in pairs ([i] & [i-1] can be confusing)
+// iterating in pairs required an extra check for when we were given an odd number of elements
+
+// ------------------------
+
+// REFLECTIONs: 
+// Previously, I used a 'for' loop - no real difference
+// Below using .forEach() & .filter() (slightly shorter as .filter() returns an array)
+
+
+  let invalidArray = [];
+
+const findInvalidCards = (nestedArray) => {
+  nestedArray.forEach((array) => {
+  if (validateCred(array) === false) {
+    invalidArray.push(array);
+   }
+}) 
+return invalidArray;
+}
+
+invalidArray = findInvalidCards(batch)
+console.log(invalidArray)
+
+// ------------------------
+
+OR using .filter()
+
+const findInvalidCards = (nestedArray) => { 
+  let invalidArray = nestedArray.filter(array => {
+  return validateCred(array) === false; 
+});
+ return invalidArray;
+}
+
+let result = findInvalidCards(batch)
+console.log(result)
+
+// ------------------------
+
+
+const idInvalidCardCompanies=(nestedArray)=>{ 
+let companyArr = [];
+for (let i = 0; i < nestedArray.length; i++) {
+let company;
+switch (nestedArray[i][0]) {
+  case 3:
+  { company = "Amex"};
+  break;
+   case 4:
+  { company = "Visa"};
+  break;
+   case 5:
+  { company = "Mastercard"};
+  break;
+   case 6:
+  { company = "Discover"};
+  break;
+  default:
+  {console.log("Company not found")}
+  break;
+}
+if ( !companyArr.includes(company)) {
+  companyArr.push(company)
+    }
+  } return companyArr;
+}
+
+console.log(idInvalidCardCompanies(invalidArray))
+
+//  REFLECTIONS: 
+// Previously, I used an 'else if' statement which was clear and legible
+// A case switch is much the same.
+
+// However, helper function 'isItThere' checked if the array already contained a value
+// A shorter alternative is to use array.include("value")
+
+// I cut down on the repetitive code, by saving the value to a variable 'company' 
+// code for checking / pushing into the array is only required ONCE, after the switch case. 

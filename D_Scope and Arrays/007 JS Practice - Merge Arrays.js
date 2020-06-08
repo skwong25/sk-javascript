@@ -3,19 +3,21 @@ let namesAges = [["Beyonce", 35], ["JayZ", 50], ["Blue Ivy", 7]]
 
 // TASK 1: write a function that can merge two 2D arrays
 
-function mergeArrays (arrayOne, arrayTwo) {  
+function mergeArrays (arr1, arr2) {  
+for (let i = 0; i < arr1.length; i++) {
+  for (let j = 0; j < arr2.length; j++ ) {
+      if ( arr1[i][0] === arr2[j][0]) {
+          arr1[i].push(arr2[j][1]);
+      };
+  };
+}}
 
-for ( let i = 0; i < arrayOne.length; i++ ) {
-  for (let q = 0; q < arrayTwo.length; q++ ) {
-    if (arrayOne[i][0] === arrayTwo[q][0]) {
-      arrayOne[i][2] = arrayTwo[q][1]; 
-    } 
-  }  
-} console.log(arrayOne)
-}
+mergeArrays(arr1, arr2)
 
-mergeArrays(namesColours, namesAges)
-
-
-
-
+/* Output: 
+[
+[ 'JayZ', 'red', 50 ],
+[ 'Blue Ivy', 'yellow', 7 ],
+[ 'Beyonce', 'green', 35 ],
+[ 'Eminem', 'pink' ]
+] */

@@ -6,11 +6,15 @@
 - truthy and falsy evaluations with short-circuit evaluation
 - ternary operators */
 
-let noOfGuests = 4;
+
+let noOfGuests = Math.floor(Math.random()*5);
 let facebookStatus; 
 let guests = noOfGuests || 'zero';
+//  short circuit evaluation: if noOfGuests exists, the 'guests' variable assumes that value. 
+// If not, it assumes a default of 'zero'. 
 
 noOfGuests ? console.log ("Open the door!") : console.log ("No-one is at the door.");
+// ternary operator checks for guests 
 
 console.log (`Guests at my house: ${guests}`);
 
@@ -30,29 +34,44 @@ if (guests === 4) {
 
 console.log (facebookStatus + instaStatus);
 
-// The below code block is practicing 7 Switch Keyboard 
+// Switch Statement:  
 
-let dish = 'red braised pork';
+let dish;
+let comment;
+let randomNumber = Math.floor(Math.random()*3);
 
-console.log('Yoopi is cooking ' + dish + '.');
-
-switch (dish) {
-  case 'red braised pork':
-    console.log ('I hope the pork is not too dry.');
+switch (randomNumber) {
+  case 0:
+    dish = 'red braised pork'
+    comment = 'I hope the pork is not too dry.';
     break;
-  case 'herby rice and soy salmon':
-    console.log ('Our most onerous friend, Becca, can eat this.');
+  case 1:
+    dish = 'herby rice and soy salmon'
+    comment = 'Our most onerous friend, Becca, can eat this.';
     break;
-  case 'preserved lemon and olive chicken stew':
-    console.log ('Sabrina Ghayour classic.');
+  case 2:
+    dish = 'preserved lemon and olive chicken stew'
+    comment = 'A Sabrina Ghayour classic.';
     break;
   default:
-    console.log ('Ooh. Is that a new recipe?');
-    break;
-    
+    dish = 'something new'
+    comment = 'Is that a new recipe?';
+    break; 
   }
+  // The previous code supplied an array holding a 'repetoire' of dishes
+  // A random number generated allowed us to access a dish via index, the dish was logged to console.
+  // The switch statement then matched the selected dish to a comment, which was logged to console.
+  // I rewrote the code so that dishes & comments are stored / accessed in the switch statement. 
+  // There is now just one console.log statement. 
+
+  console.log(`Yoopi is cooking ${dish}. ${comment}`);
 
   if (guests > 0 && dish) {
     console.log (' Dinner has been a success! ')
   }
 
+  //  or another way to check for guests:
+
+  if (typeof guests === 'number' && dish ) {
+    console.log ('Time go home so I can sleep! ')
+  }
