@@ -55,7 +55,7 @@ const inputField = document.querySelector('#input');
 const shortenButton = document.querySelector('#shorten');
 const responseField = document.querySelector('#responseField');
 
-// AJAX functions
+// functions
 const shortenUrl = () => {
   const urlToShorten = inputField.value // captures the url 
   const data = JSON.stringify({destination: urlToShorten})
@@ -79,7 +79,7 @@ const shortenUrl = () => {
   })
 }
 
-// Clear page and call AJAX functions
+// Clear page and call functions
 const displayShortUrl = (event) => {
   event.preventDefault();
   while(responseField.firstChild){

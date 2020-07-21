@@ -5,7 +5,7 @@
  * HYPERTEXT is text displayed on a device that provides access to other text via links aka hyperlinks
  * 
  * Likely, we will layer HTML with CSS and JS to create websites
- * For now, we will learn how to add/modift basic content on a page: 
+ * For now, we will learn how to add/modify basic content on a page: 
  *  - headings, paragraphs, lists and spans (text elements)
  *  - images, videos 
  *

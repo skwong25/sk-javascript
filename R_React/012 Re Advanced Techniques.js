@@ -177,12 +177,12 @@ export class GuineaPigs extends React.Component {
   }
 }
 
-export const GuineaPigs = (props) => {
-  render() {
+export const GuineaPigs = (props) => { // Note methods to be declared as typical JS functions 
     const src = props.src;
     return <img src={src}/>;
-    }
 }
+
+
 
 // QUESTION: Is a stateless functional component the same as a stateless component?:
 // ANSWER: A stateless functional component can be seen as a function that returns JSX 
@@ -190,6 +190,51 @@ export const GuineaPigs = (props) => {
 
 // A stateless component is a class, though no state. 
 // Typically used by a parent component for rendering something like text/info 
+
+// Note that functional components can have internal state in React v16.8.0.
+// using built-in React hooks: 
+
+// useState:
+
+const [state, setState] = useState(initialState);
+const [count, setCounter] = useState(0);
+// (0) is the first state of the count, and setCounter is the method by which to update state
+<button onClick={() => setCounter({ count: 1 })}></button>
+
+Eg:
+const [isLoading, setLoading] = useState(true);
+
+https://enmascript.com/articles/2018/10/26/react-conf-2018-understanding-react-hooks-proposal-with-simple-examples
+
+// useEffect:
+
+// Data fetching, setting up a subscription, and manually changing the DOM in React components 
+// are all examples of side effects.
+// Think of useEffect Hook as componentDidMount, componentDidUpdate, and componentWillUnmount combined.
+// Typically side effects are put into the above class lifecycle methods 
+// Two kinds of side effects in React components: those that do and don't require cleanup
+// Eg of effect not requiring clean-up: 
+// First parameter: function to be performed after render. Note effect is different each time. 
+// Second parameter: React compares this array of values with the array of the previous render. 
+// React will only call the effect when any value of the array has changed since the previous render.
+
+import React, { useState, useEffect } from 'react';
+function Example() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {    document.title = `You clicked ${count} times`;  });
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+
+// Read more here: https://reactjs.org/docs/hooks-effect.html
+
 
 // --------------
 
@@ -224,7 +269,7 @@ MessageDisplayer.propTypes = {
 // 1st, search for a property named propTypes on the instructions object. If not one, make one. 
 // Declare it after the close of component declaration, as it will be a STATIC PROPERTY. 
 // * A property that applies to the component class but not to any one instance of the class
-//   We only set propTypes once to the class, every instance created cna refer back to that. 
+//   We only set propTypes once to the class, every instance created can refer back to that. 
 // 2nd, add a property to the propTypes object - one for each prop your component class expects to receive
 // Each property on a propTypes object is called a propType.
 

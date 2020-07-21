@@ -23,7 +23,7 @@ fetch('https://api-to-call.com/endpoint')
 .then( response => {
 // chains .then() method to then end of the fetch() function 
 // passes the success callback arrow function as its first argument, with one parameter 'response'
-// .then() is only invokes once the promise status of fetch() is resolved
+// .then() is only invoked once the promise status of fetch() is resolved
 // remember .then() always returns a promise 
 
   if (response.ok) {
@@ -63,7 +63,7 @@ fetch('http://example.com/movies.json') // accepts one argument - the path to th
     * chained .then() method with two callback functions as arguments - a success and failure handler 
     * one to handle the promise if resolved, one to handle network errors if promise rejected
     
-* if request is successful, we will get an array of word that sound like the word we inputted 
+* if request is successful, we will get an array of words that sound like the word we inputted 
 */
 
 // Information to reach API
@@ -76,21 +76,21 @@ const inputField = document.querySelector('#input');
 const submit = document.querySelector('#submit');
 const responseField = document.querySelector('#responseField');
 
-// AJAX function
+// function
 const getSuggestions = () => {
   const wordQuery = inputField.value; // stores the value of the input field 
   const endpoint = url+queryParams+wordQuery; // adds a query string to the url 
   fetch(endpoint, {cache: 'no-cache'}) // calls fetch() with endpoint as argument
-.then( (response) => { // cache is for API to work within browser 
+    .then( (response) => { // cache is for API to work within browser 
   if (response.ok) { // chains .then() method to fetch()
     return response.json() // next .then() chained would receive a Promise with JSON data
 } throw new Error('Request failed!');
-}, (networkError) => {  // failure handler - take care on the bracket syntax! 
-  console.log(networkError.message)
-});
-.then((jsonResponse)=>{
-  renderResponse(jsonResponse);
-});
+    }, (networkError) => {  // failure handler - take care on the bracket syntax! 
+    console.log(networkError.message)
+    });
+    .then((jsonResponse)=>{
+    renderResponse(jsonResponse);
+    });
 } 
 
 // Clears previous results and display results to webpage

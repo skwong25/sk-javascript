@@ -1,8 +1,7 @@
 // << INTRO TO CLASSES >>
 
-
 // JS is an object-oriented programming (OOP) language used to model real-world items. 
-// Classes are tools to quickly produce similar objects (like factory functions?) 
+// Classes are tools to quickly produce similar objects (like factory functions) 
 // We will also learn about 'inheritance' and 'static' methods 
 
 // QUESTION: Constructor Function (Classes) vs. Factory Function? (both create Objects)
@@ -41,7 +40,9 @@ let halley = {
 
 // 02 CONSTRUCTOR METHOD >>
 
-// The main diff between class and object syntax is the constructor() method. Example: 
+// The main diff between class and object syntax is the constructor() method.
+// Also no commas between methods.
+//  Example: 
 
 class Dog { // Dog is the name of the class. Convention: capitalise and CamelCase class names
   constructor(name) { // JS will invoke the constructor() method every time 
@@ -70,6 +71,28 @@ class Dog { // Dog is the name of the class. Convention: capitalise and CamelCas
 // However the other methods reference them as if they were keys
 // The class is not strictly an object, as the properties are not seperated by commas
 
+
+// --------------
+
+// Note that an instance of a class can be created (class instantiation) without specifying a constructor method:
+
+class Dog { // no constructor()
+  pat() {
+    console.log("good dog!")
+  }
+}
+
+let newDog = new Dog()
+newDog.pat() // Output: good dog!
+
+// If you do not specify a constructor method a default constructor is used. 
+// For base classes the default constructor is:
+constructor() {}
+
+// For subclasses, the default constructor is:
+constructor() {
+  super.call()
+}
 
 // --------------
 

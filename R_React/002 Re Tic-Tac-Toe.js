@@ -5,7 +5,7 @@
 //      - takes 'props' as an argument and returns what should be rendered
 
 function Square(props) { 
-  return (  // Button tag defines a clickable button 
+  return (  
     <button className="square" onClick={props.onClick}> 
       {props.value} 
     </button>
@@ -17,30 +17,21 @@ function Square(props) {
 // Eg: <button name="button">Press me</button>
 // Here is defined  1) name of the button 
 //                  2) DOM button's built-in component attribute onClick, Eg: <element onclick="myScript"> 
-// When onClick is triggered, this accesses the 'onClick' and 'value' property of 'props' WHAT IS PROPS. 
-//                  (note not usual method calls: object.method(), unless they are getter/setters)
+// When onClick is triggered, this accesses the 'onClick' and 'value' property of 'props'  
 
 
 class Board extends React.Component {
-  renderSquare(i) {  // Eg: i = 0 
+  renderSquare(i) {  // renderSquare is called, and passed the number of the relevant square as an argument
     return (
       <Square
-        value={this.props.squares[i]} // this.props.squares[0]
-        onClick={() => this.props.onClick(i)} // this.props.onClick(0)
+        value={this.props.squares[i]} // the squares array []  stores the values by index? 
+        onClick={() => this.props.onClick(i)} // this specifically passes the square index to onClick() 
       />
     );
   }
 
 // Board and Game are subclasses of React.Component  
-// When renderSquare(i) is called, it returns variables with values specific to the square that is being rendered.
-// This includes a 'value' variable and an onClick variable 
-
-//  this.props.onClick(i) : 'this' refers to an instance of the Board
-thisBoard = { 
-  props: {
-    onClick(i) {}, 
-  },
-}
+// When renderSquare(i) is called, it creates an instance of Square, passing a value and the onClick listener as props 
 
 // render() is a method unique to Board 
 // <div> tag is a container for HTML elements, defining a section in a HTML doc.  
@@ -70,20 +61,13 @@ thisBoard = {
   }
 }
 
-// A constructor method is defined, with the argument 'props'
-// super calls the React.Component constructor method for the 'props' argument
-// this.state defines a unique 'state' property, with a value of an object.
-// This sets the starting state: a board of empty squares, a stepNumber of 0, and X is the first player.
-// The object contains 'history', 'stepNumber' and 'xIsNext' properties
-// the history property stores an array of objects. The first contains a 'squares' property with the value of an array of 9 'nulls'
-
 class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       history: [
         {
-          squares: Array(9).fill(null) // Array constructor
+          squares: Array(9).fill(null) // Array constructor creates an array of empty spaces
         }
       ],
       stepNumber: 0, 
@@ -99,10 +83,10 @@ class Game extends React.Component {
       return;
     }
     squares[i] = this.state.xIsNext ? "X" : "O"; // the clicked square in the above copied array is assigned a value 
-    this.setState({                             // calls setState() pases an object as argument 
-      history: history.concat([                // concatenates the 'history' [{},{},{}] with [{}]
+    this.setState({                             // calls setState()  
+      history: history.concat([                // concatenates the 'slice' of 'history' [{},{},{}] with [{}]
         {
-          squares: squares                   // the 'squares' variable reflects the new move 
+          squares: squares                   // with the 'squares' variable reflecting the latest move 
         }
       ]),
       stepNumber: history.length,         // stepNumber set to the number of moves now in the 'history' array 
@@ -134,7 +118,7 @@ class Game extends React.Component {
     });
 
     // <li> HTML tag defines a list item, assigning a proper key, referencing the history[index] - number of the move/step)
-    // render() iterates through history, rendering a series of buttons anew each time
+    // .map iterates through history, rendering a series of buttons anew each time
     // Each button is sets up an onClick event listener which triggers jumpTo() method
 
     let status;                               // still within render(method)
@@ -168,7 +152,6 @@ class Game extends React.Component {
 
 // Note <ol> HTML tag defines an ordered list, passed the value of 'moves' variable (list of buttons)
 
-// Still don't understand how the Game interacts with the Square function and the Board class 
 // What does the Square function do? Does it just display the value X or 0, as passed to it by Board 
 // What does the Board class do? Has a renderSquare() that passes value to Square and sets up a onClick event listener 
 

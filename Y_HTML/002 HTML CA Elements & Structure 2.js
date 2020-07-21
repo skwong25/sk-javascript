@@ -40,7 +40,7 @@
 
 // --------------
 
-// Linking to Other Web Pages >> 
+// Linking to Other Web Pages Hyperlinks>> 
 // Add links by adding ANCHOR element <a> incl. 'href' (hyperlink reference) attribute 
 // href is used to link to a PATH or address where the file is located, often a URL 
 

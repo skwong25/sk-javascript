@@ -87,6 +87,7 @@ xhr.send()
 // Codecademy Exercise 2 : A fetch() GET request to access Datamuse API
 
 // Information to reach API
+const apiKey = '8b5f6c3b9b05408d801908faf6620139';
 const url = 'https://api.datamuse.com/words?';
 const queryParams = 'rel_jja=';
 

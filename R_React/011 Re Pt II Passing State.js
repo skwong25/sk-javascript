@@ -175,9 +175,6 @@ export class ChildClass extends React.Component {
 // Once the state has changed, the <Child/>'s props changes to reflect, and the name displays. 
 
 
- the dropdown choice  and passes the parent the chosen name
-// The parent  
-
 // Child.js >> 
 
 import React from 'react';

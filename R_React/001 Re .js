@@ -42,13 +42,12 @@ class ShoppingList extends React.Component { // this is the only similarity to J
 
 /** JSX comes with the full power of JS. You can put any JS expression in braces inside JSX
  * Each React element is a JS object that can be stored in a variable or passed around your program. 
- * The ShoppingList component only render built-in DOM components like <div /> and <li/>
+ * The ShoppingList component only renders built-in DOM components like <div /> and <li/>
  * But you can compose and render custom React components too.
  * Eg we can now refer to the whole shopping list by writing <ShoppingList />
  * Each React component is encapsulated and can operate independently
  * This allows us to build complex UIs from simple components.
  */
-
 
 // --------------
 
@@ -62,7 +61,6 @@ class ShoppingList extends React.Component { // this is the only similarity to J
  * STEP 1 - 'Passing a prop' from a parent Board component to a child Square component.
  * --------------
  * Passing props is how info in React app flows, from parents to childen
- * (I guess the Board component is the parent because it CONTAINS the child Square component?)
  * 
  * STEP 2 - Making an Interactive Component 
  * --------------
@@ -73,7 +71,6 @@ class ShoppingList extends React.Component { // this is the only similarity to J
  * React only calls this function after a click. Common Mistake: Forgetting () =>  
  * onClick = {alert('click')} would fire the alert every time the component re-renders
  * Output: alert screen in browser that says 'click' and has an OK button. 
- * (To avoid the confusing behaviour of 'this', we will use the arrow function for event handlers)
  * 
  * Next step: we want the Square component to 'remember' that it got clicked and fill with an X mark
  * To 'remember' things, components use 'State'
@@ -299,7 +296,7 @@ function calculateWinner(squares) {
 }
 
 /** Developer Tools
- * React DevTools extension for Chrome/Firefox lets you inspect a React component tree with brower's dev tools 
+ * React DevTools extension for Chrome/Firefox lets you inspect a React component tree with browser's dev tools 
  * React DevTools let you check the props and state of your React components
  * After installing React DevTools, right-click on any element on the page, click 'Inspect' to open dev tools
  * Use "Components" tab to inspect the component tree.
@@ -389,7 +386,7 @@ function calculateWinner(squares) {
  * Why Immutability is Important
  * 
  * Two approaches to changing data: 
- *      - 1.mutate the data (directly change data's values)
+ *      - 1. mutate the data (directly change data's values)
  *      - 2. replace the data with a new copy which has desired changes
  * 
  * The Benefits to Non-Mutation:
@@ -429,7 +426,7 @@ function calculateWinner(squares) {
  * 6.0 Allow O's to be marked on the board and show 
  * Set the first move to be "X" by modifiying the initial state in the Board constructor
  * Each time a player moves, xIsNext (a boolean) is flipped
- * This determine which player goes next and the game's state will be saved.
+ * This determines which player goes next and the game's state will be saved.
  * 6.1  We'll update the Board's handleClick function to flip the value of xIsNext 
  * 6.2 Show which player is next by modifying the 'status' text in Board's render() method 
  * 
@@ -443,7 +440,7 @@ function calculateWinner(squares) {
  * If a player has won, let's display text "Winner X" or "Winner O"
  * 7.0 Replace the status declaration in Board's 'render' function with new code.
  * 7.1 We will now change the Board's handleClick function to return early 
- * by ignoring a click if someone has won a game of if a Square is already filled
+ * by ignoring a click if someone has won a game or if a Square is already filled
  * 
  * --------------
  * 
@@ -481,8 +478,8 @@ function calculateWinner(squares) {
  * to determine and display the game's status.
  * We can then remove the corresponding code from the Board's render method. 
  * 
- * 8.6 Finally, move the handClick method from Board to Game component. 
- * This involves modifying handClick because the Game component's state is structured differently.
+ * 8.6 Finally, move the handleClick method from Board to Game component. 
+ * This involves modifying handleClick because the Game component's state is structured differently.
  * Within the Game's handleClick method, we concatenate new history entries onto 'history'
  * At this point, the Board component only has renderSquare & render methods
  * The game's state and handleClick method are in the Game component. 
@@ -528,7 +525,7 @@ function calculateWinner(squares) {
  * Even though 'key' looks like it belongs in 'props', 
  * 'key' cannot be referencing using this.props.key.
  * React automatically uses 'key' to decide which components to update. 
- * A component cannot inquire about about its key. 
+ * A component cannot inquire about its key. 
  * 
  * Assign proper keys when you build dynamic lists. 
  * If you don't have an appropriate key, you may want to restructure your data so that you do. 
