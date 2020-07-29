@@ -8,7 +8,7 @@ https://nodejs.org/api/
 // Node can build web servers and web apps, but also command-line apps and desktop apps. 
 // The goal is to get comfortable with running JS in the Node environmt and familiarise oneself with Node features
 // Node can be combined with Express.js framework to create effective web application back-ends. 
-// (note that I already use npm which is Node package manager - how does that relate?)
+// (note that I already use npm which is Node package manager. Checking my node version in Terminal returns v12.16.1)
 
 // check version of node installed:
 node -v
@@ -217,7 +217,7 @@ process.stdin.on('data', (userInput) => { // process.stdin is an instance of Eve
   console.log(input)
 });
 
-// When user enters text into terminal and htis enter, a 'data' event fires and invokes the listener callback.
+// When user enters text into terminal and hits enter, a 'data' event fires and invokes the listener callback.
 // The userInput we receive is an instance of the Node Buffer class, so we convert to string before printing. 
 // In Node, Buffer objects are used to represent binary data in the form of a sequence of bytes
 
@@ -245,8 +245,7 @@ const errorFirstCallback = (err, data)  => {
 }
 
 // Node uses error-first callbacks with many asynchronous APIs because
-// traditional try...catch statemens won't work for errors through during asynchronous operations. 
-
+// traditional try...catch statements won't work for errors thrown during asynchronous operations. 
 
 //  -----------------------------------
 // FILESYSTEM
@@ -283,12 +282,12 @@ fs.createReadStream()
 // (streaming data means you don't need enough RAM to process all at once, nor all data to begin processing)
 // One of the simplest uses of streams is reading & writing to files line-by-line.
 // To read files line-by-line, use .createInterface() method from the readline core module 
-.createInterface() /* returns an EventEmitter set up to emit 'line' events */
+.createInterface() /* returns <EventEmitter/> set up to emit 'line' events */
 
 const readline = require('readline'); // requires in readline core module 
 const fs = require('fs');             // requires in fs core module (API for interacting with file system)
 
-const myInterface = readline.createInterface({ // assigns myInterface to returned value from calling .createInterface  with an object containng designated 'input'
+const myInterface = readline.createInterface({ // assigns myInterface to returned value from calling .createInterface with object containing designated 'input'
     input: fs.createReadStream('text.txt')    // return value of .createReadStream is a stream from the text.txt file
 });                                          // createInterface returns an instance of the EventEmitter class
 
@@ -302,7 +301,7 @@ myInterface.on('line', (fileLine) => {        //.on assigns a listener callback 
 
 // 1. Create a program that reads each item off of a shopping list (located in shoppingList.txt) and prints it to the console. 
 // Create a myInterface variable. Assign myInterface the value returned from invoking readline.createInterface().
-// Invoke readline.createInterface() with an object with a key of input and a value of fs.createReadStream(). 
+// Invoke readline.createInterface() with an object with key 'input' and value of fs.createReadStream(). 
 
 // 2. Create a listener callback function to use in the next step. Name this function printData. 
 // printData() should expect to receive some data and should log to console in the format: Item: [data], where [data] is the argument passed into the function. 
@@ -360,9 +359,9 @@ const fileStream = fs.createWriteStream('output.txt'); // sets the output file
 
 fileStream.write('This is the first line!');  // then we write lines to the file
 fileStream.write('This is the second line!'); // unlike a readable stream which ends when no more data to read
-fileStream.end();                             // a writeable stream remains open indefinitely. 
+fileStream.end();                             // a writeable stream remains open indefinitely until we indicate with the .end() method 
 
-// We can indicate the end of a writable stream with the .end() method
+
 
 //  -----------------------------------
 // EXERCISE 2 - readable and writable streams
@@ -384,8 +383,7 @@ const myInterface = readline.createInterface({
   input: fs.createReadStream('shoppingList.txt')
 });
 // fs.createReadStream creates a stream of data
-// readline.createInterface() returns an EventEmitter
-// I believe it emits an event for each line  
+// readline.createInterface() returns an EventEmitter, which emits an event for each line  
 
 const fileStream = fs.createWriteStream('shoppingResults.txt');
 // sets the file to write the stream into
@@ -415,7 +413,7 @@ They were out of: tamarind
 
 // Node was designed with back-end developmt needs as a top priority
 // One of these needs is the ability to create web servers
-// computer processess that listen for requests from clients and return reponses
+//  - computer processes that listen for requests from clients and return reponses
 
 // A Node core module designed to meet these needs is the http module 
 // http module contains functions that simplify interacting with HTTP and streamline receiving and responding to requests
