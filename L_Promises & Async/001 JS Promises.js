@@ -19,8 +19,7 @@ All promises eventually settle, enabling us to write logic for what do if promis
 // Use the 'new' keyword and the 'Promise' constructor method:
 
 const executorFunction = (resolve, reject) => {};
-const myFirstPromise = new
-Promise (executorFunction);
+const myFirstPromise = new Promise (executorFunction);
 
 // << constructor method >> takes a function parameter 'executor function' 
 // which runs automatically when the constructor is called.

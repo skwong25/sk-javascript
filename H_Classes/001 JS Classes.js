@@ -346,8 +346,4 @@ console.log(HospitalEmployee.generatePassword())
 - Static methods are called on the class, but not object instances. 
   
 // --------------
-
-              
-
-
-
+*/
